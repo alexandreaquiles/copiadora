@@ -14,34 +14,31 @@ public class Main {
 		try (Scanner scanner = new Scanner(System.in)) {
 			String opcao = scanner.nextLine();
 			if ("C".equals(opcao)) {
-				System.out.println("Pode digitar:");
-				while (scanner.hasNextLine()) {
-					String line = scanner.nextLine();
-					if ("exit".equals(line)) {
-						break;
-					} else {
-						System.out.println(line);
-					}
-				}
+				PrintStream saida = new PrintStream(System.out);
+				imprime(scanner, saida);
 			} else if ("A".equals(opcao)) {
-				System.out.println("Pode digitar:");
-				try(PrintStream saida = new PrintStream("saida.txt")){
-					while (scanner.hasNextLine()) {
-						String line = scanner.nextLine();
-						if ("exit".equals(line)) {
-							break;
-						} else {
-							saida.println(line);
-						}
-					}
+				try (PrintStream saida = new PrintStream("saida.txt")) {
+					imprime(scanner, saida);
 				} catch (FileNotFoundException e) {
 					System.out.println("Erro ao salvar o arquivo.");
 				}
-				
+
 			} else {
 				System.out.println("Opção inválida. Tente novamente mais tarde.");
 			}
 
+		}
+	}
+
+	private static void imprime(Scanner scanner, PrintStream saida) {
+		System.out.println("Pode digitar:");
+		while (scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			if ("exit".equals(line)) {
+				break;
+			} else {
+				saida.println(line);
+			}
 		}
 	}
 }

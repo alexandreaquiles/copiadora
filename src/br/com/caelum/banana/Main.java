@@ -11,8 +11,8 @@ public class Main {
 
 		try (Scanner scanner = new Scanner(System.in)) {
 			String opcao = scanner.nextLine();
-			Copia copiadora = new Copia(scanner);
-			copiadora.copia(opcao);
+			Copia copiadora = Copias.seleciona(opcao).getCopia();
+			copiadora.copia(scanner);
 		}
 	}
 

@@ -1,7 +1,5 @@
 package br.com.caelum.banana;
 
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Main {
@@ -13,32 +11,9 @@ public class Main {
 
 		try (Scanner scanner = new Scanner(System.in)) {
 			String opcao = scanner.nextLine();
-			if ("C".equals(opcao)) {
-				PrintStream saida = new PrintStream(System.out);
-				imprime(scanner, saida);
-			} else if ("A".equals(opcao)) {
-				try (PrintStream saida = new PrintStream("saida.txt")) {
-					imprime(scanner, saida);
-				} catch (FileNotFoundException e) {
-					System.out.println("Erro ao salvar o arquivo.");
-				}
-
-			} else {
-				System.out.println("Opção inválida. Tente novamente mais tarde.");
-			}
-
+			Copia copiadora = new Copia(scanner);
+			copiadora.copia(opcao);
 		}
 	}
 
-	private static void imprime(Scanner scanner, PrintStream saida) {
-		System.out.println("Pode digitar:");
-		while (scanner.hasNextLine()) {
-			String line = scanner.nextLine();
-			if ("exit".equals(line)) {
-				break;
-			} else {
-				saida.println(line);
-			}
-		}
-	}
 }

@@ -11,7 +11,7 @@ public class Main {
 
 		try (Scanner scanner = new Scanner(System.in)) {
 			String opcao = scanner.nextLine();
-			Saida copiadora = TiposSaida.seleciona(opcao).getCopia();
+			Saida copiadora = TiposSaida.seleciona(opcao).getSaida();
 			copiadora.copia(scanner);
 		}
 	}

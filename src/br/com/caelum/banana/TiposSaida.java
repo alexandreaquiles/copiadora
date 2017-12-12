@@ -7,15 +7,15 @@ public enum TiposSaida {
 	CONSOLE("C", new SaidaConsole()), ARQUIVO("A", new SaidaArquivo());
 
 	private String opcao;
-	private Saida copia;
+	private Saida saida;
 
-	private TiposSaida(String opcao, Saida copia) {
+	private TiposSaida(String opcao, Saida saida) {
 		this.opcao = opcao;
-		this.copia = copia;
+		this.saida = saida;
 	}
 
-	public Saida getCopia() {
-		return copia;
+	public Saida getSaida() {
+		return saida;
 	}
 	
 	public static TiposSaida seleciona(String opcao) {

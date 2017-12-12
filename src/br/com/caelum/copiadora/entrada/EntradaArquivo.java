@@ -4,21 +4,23 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import br.com.caelum.copiadora.Entrada;
+import br.com.caelum.copiadora.dominio.Entrada;
 
 public class EntradaArquivo implements Entrada {
 
 	private Scanner scanner;
 
-	public EntradaArquivo() {
+	@Override
+	public void cria() {
 		try {
 			File arquivo = new File("entrada.txt");
 			this.scanner = new Scanner(arquivo);
-		} catch (FileNotFoundException e) {
-			throw new RuntimeException("Arquivo de entrada não encontrado.");
+		} catch (FileNotFoundException ex) {
+			System.out.println("Arquivo de entrada não encontrado.");
+			throw new RuntimeException(ex);
 		}
 	}
-	
+
 	@Override
 	public String le() {
 		return scanner.nextLine();

@@ -3,7 +3,7 @@ package br.com.caelum.banana;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-public abstract class Copia {
+public abstract class Saida {
 	
 	public abstract void copia(Scanner scanner);
 

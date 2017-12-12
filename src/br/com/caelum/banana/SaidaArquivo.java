@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-public class CopiaArquivo extends Copia {
+public class SaidaArquivo extends Saida {
 
 	@Override
 	public void copia(Scanner scanner) {

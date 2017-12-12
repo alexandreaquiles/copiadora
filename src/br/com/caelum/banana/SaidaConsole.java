@@ -3,7 +3,7 @@ package br.com.caelum.banana;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-public class CopiaConsole extends Copia {
+public class SaidaConsole extends Saida {
 
 	@Override
 	public void copia(Scanner scanner) {
